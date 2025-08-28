@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "name": "pet-consultation",
+  "builds": [
+    {
+      "src": "pet-consultation/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "buildCommand": "cd pet-consultation && npm run build",
+  "outputDirectory": "pet-consultation/dist",
+  "installCommand": "cd pet-consultation && npm install"
+}
